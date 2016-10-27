@@ -1,0 +1,16 @@
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\bin\Debug\InkCanvasTest.exe.config
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\bin\Debug\InkCanvasTest.exe
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\bin\Debug\InkCanvasTest.pdb
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\InkCanvasTest.csprojResolveAssemblyReference.cache
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\MainWindow.g.cs
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\App.g.cs
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\InkCanvasTest_MarkupCompile.cache
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\InkCanvasTest_MarkupCompile.lref
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\MainWindow.baml
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\InkCanvasTest.g.resources
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\InkCanvasTest.Properties.Resources.resources
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\InkCanvasTest.csproj.GenerateResource.Cache
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\InkCanvasTest.exe
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\InkCanvasTest.pdb
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\Themes\Generic.baml
+E:\软件和资料\源码参考\github\InkCanvasTest\InkCanvasTest\obj\Debug\GeneratedInternalTypeHelper.g.cs
