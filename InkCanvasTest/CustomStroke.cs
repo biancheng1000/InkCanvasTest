@@ -12,10 +12,13 @@ namespace InkCanvasTest
 {
         public class CustomStroke:Stroke
         {
-            public CustomStroke(StylusPointCollection pts)
+
+        Action<DrawingContext, Point, Point> draw;
+            public CustomStroke(StylusPointCollection pts, Action<DrawingContext, Point, Point> drawact=null)
              : base(pts)
             {
                 this.StylusPoints = pts;
+               draw = drawact;
             }
 
             protected override void DrawCore(DrawingContext drawingContext, DrawingAttributes drawingAttributes)
@@ -28,37 +31,24 @@ namespace InkCanvasTest
                 {
                     throw new ArgumentNullException("drawingAttributes");
                 }
-                DrawingAttributes originalDa = drawingAttributes.Clone();
-                SolidColorBrush brush2 = new SolidColorBrush(Colors.Gold);
-                Pen pen = new Pen(brush2, 2);
-                brush2.Freeze();
-                drawingContext.DrawRectangle(brush2, null, new Rect((Point)StylusPoints[0], (Point)StylusPoints[StylusPoints.Count-1]));
-            }
 
-            Point GetTheLeftTopPoint()
-            {
-                if (this.StylusPoints == null)
-                    throw new ArgumentNullException("StylusPoints");
-                StylusPoint tmpPoint = new StylusPoint(double.MaxValue, double.MaxValue);
-                foreach (StylusPoint point in this.StylusPoints)
+                if (StylusPoints.Count < 2)
                 {
-                    if ((point.X < tmpPoint.X) || (point.Y < tmpPoint.Y))
-                        tmpPoint = point;
+                    return;
                 }
-                return tmpPoint.ToPoint();
-            }
 
-            Point GetTheRightBottomPoint()
-            {
-                if (this.StylusPoints == null)
-                    throw new ArgumentNullException("StylusPoints");
-                StylusPoint tmpPoint = new StylusPoint(0, 0);
-                foreach (StylusPoint point in this.StylusPoints)
+            DrawingAttributes originalDa = drawingAttributes.Clone();
+            SolidColorBrush brush2 = new SolidColorBrush(originalDa.Color);
+            Pen pen = new Pen(brush2, 1);
+            brush2.Freeze();
+            if (draw != null)
                 {
-                    if ((point.X > tmpPoint.X) || (point.Y > tmpPoint.Y))
-                        tmpPoint = point;
+                    draw(drawingContext,(Point)StylusPoints[0], (Point)StylusPoints[StylusPoints.Count - 1]);
                 }
-                return tmpPoint.ToPoint();
+                else
+                {
+                    drawingContext.DrawRectangle(null, pen, new Rect((Point)StylusPoints[0], (Point)StylusPoints[StylusPoints.Count - 1]));
+                }
             }
         }
     

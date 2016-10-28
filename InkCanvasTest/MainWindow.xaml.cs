@@ -25,4 +25,6 @@ namespace InkCanvasTest
             InitializeComponent();
         }
     }
+
+   
 }

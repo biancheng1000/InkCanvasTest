@@ -18,6 +18,12 @@ namespace InkCanvasTest
         private Point prevPoint;
         private Point LastPoint;
         bool first;
+        Action<DrawingContext, Point, Point> processDraw;
+
+        public CustomDynamicRenderer(Action<DrawingContext,Point,Point> c)
+        {
+            processDraw = c;
+        }
 
         protected override void OnStylusDown(RawStylusInput rawStylusInput)
         {
@@ -38,19 +44,17 @@ namespace InkCanvasTest
                                        Geometry geometry, Brush fillBrush)
         {
             
-        
-
             // Create a new Brush, if necessary.
-            if (brush == null)
-            {
-                brush = new LinearGradientBrush(Colors.Red, Colors.Blue, 20d);
-            }
+            //if (brush == null)
+            //{
+            //    brush = new LinearGradientBrush(Colors.Red, Colors.Blue, 20d);
+            //}
 
             // Create a new Pen, if necessary.
-            if (pen == null)
-            {
-                pen = new Pen(brush, 2d);
-            }
+            //if (pen == null)
+            //{
+            //    pen = new Pen(brush, 2d);
+            //}
 
             if (!first)
             {
@@ -60,9 +64,9 @@ namespace InkCanvasTest
 
             LastPoint = (Point)stylusPoints[stylusPoints.Count - 1];
 
+            processDraw(drawingContext, prevPoint, LastPoint);
 
-            drawingContext.DrawRectangle(null, pen,  new Rect(prevPoint, LastPoint));
-          
+            ///drawingContext.DrawRectangle(null, pen,  new Rect(prevPoint, LastPoint));
         }
     }
 }
